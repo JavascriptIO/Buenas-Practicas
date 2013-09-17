@@ -5,5 +5,5 @@ Repositorio con las charlas y ejemplos de los #jsIO
 
 * Introducción buenas prácticas
   * [Slides](http://javascriptio.github.io/Buenas-Practicas/slides/?title=introduccion#/)
-  * [Source code](http://github.com/javascriptio/Buenas-Practicas/)
-  * [Video Hangout](#)
+  * [Source code](https://github.com/JavascriptIO/Buenas-Practicas/tree/master/introduccion)
+  * Video Hangout (19/09/2013 21:00) [+ info](http://www.desarrolloweb.com/en-directo/buenas-practicas-javascript-jsio-8377.html)
