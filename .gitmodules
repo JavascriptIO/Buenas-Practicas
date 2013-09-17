@@ -1,0 +1,6 @@
+[submodule "reveal.js"]
+	path = reveal.js
+	url = https://github.com/hakimel/reveal.js
+[submodule "slides"]
+	path = slides
+	url = https://github.com/JavascriptIO/Deck-Wrapper-for-reveal.js
