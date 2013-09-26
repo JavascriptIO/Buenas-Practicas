@@ -1,0 +1,10 @@
+var $ = require('./mixins1.js');
+var c = new $.Circle();
+// Mostrar que c tiene tan solo un radio
+// Aplicar el Mixin:
+$.asCircle.call(c);
+// Mostrar que c tiene radio y todas las funciones del Mixin
+// Mostrar que eso es posible:
+var myCircle = $.asCircle.call({radius:25});
+
+// Cargar Mixins2 y aplicar los dos Mixins (asCircle y asButton)
