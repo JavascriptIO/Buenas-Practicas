@@ -1,0 +1,380 @@
+<div class="slides">
+    <section>
+        <h1>#JsIO</h1>
+<h2>Buenas prácticas JavaScript</h2>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/eiximenis/images/91651/jsio.png" style="width: 184px; height: 184px; max-height: none; max-width: none;">
+        <br>
+</div>
+<div>Eduard Tomàs</div>
+<div>@eiximenis</div>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/eiximenis/images/91652/logo_mvp.png" style="width: 91.53216374269006px; height: 172px; max-height: none; max-width: none;">
+        <br>
+</div>
+    </section>
+    <section>
+        <h2>Cosas a ver...</h2>
+<div>
+        <br>
+    </div>
+<div>
+    <ol>
+<li>Sobrecarga de funciones</li>
+<li>this y el contexto</li>
+<li>"clases" y objetos en JavaScript</li>
+<li>Currificación</li>
+<li>Propiedades</li>
+<li>Mixins</li>
+<li>Funciones "estáticas"</li>
+</ol>
+</div>
+</section>
+<section>
+    <h2>Sobrecarga de funciones</h2>
+<div>
+    <br>
+</div>
+<div>No existe directamente en JavaScript</div>
+<div>
+<br>
+</div>
+<div>Pero una función puede ser llamada con cualquier número de parámetros, con independencia de los que defina</div>
+<div>
+<br>
+</div>
+<div>
+<ul>
+<li>Si faltan parámetros, su valor será <font color="#ffff00">undefined</font>
+</li>
+<li>Si sobran parámetros se puede acceder a través de <font color="#ffff00">arguments</font>
+</li>
+</ul>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<font color="#ffff00">undefined</font>
+<font color="#f1c232"> </font>|| &lt;algo&gt; === &lt;algo&gt;</div>
+</section>
+<section>
+    <section>
+        <h2>this y el contexto</h2>
+<div>
+        <br>
+    </div>
+<div>
+<font color="#ffff00">this </font>en JavaScript es muy distinto a Java, C#, C++</div>
+<div>
+    <br>
+</div>
+<div>El valor de&nbsp;<font color="#ffff00">this </font>dentro de una función depende de <i>como</i>&nbsp;se invoca a dicha función, no de como se define esta función</div>
+<div>
+<br>
+</div>
+<div>Al valor de this se le conoce generalmente como el <i>contexto</i>&nbsp;de una función</div>
+</section>
+<section>
+    <h2 style="font-style: normal; font-variant: normal;">El contexto por defecto</h2>
+<h2 style="font-style: normal; font-variant: normal;">
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+    <br>
+</div>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+<span style="font-weight: normal;">Si no especificas nada&nbsp;<font color="#ffff00">this</font>&nbsp;vale...&nbsp;</span>
+</div>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+<span style="font-weight: normal;">
+    <br>
+</span>
+</div>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+<ol style="font-weight: normal;">
+<li>El objeto global (<i>window</i>) en caso de código fuera de cualquier función</li>
+<li>El propietario de la función en caso de código que esté dentro de una función</li>
+<ol>
+<li>Si la función se invoca como "global" this se referirá al objeto global</li>
+<li>Si la función se invoca como "método" de un objeto, this se referirá al objeto que "contiene" la función...</li>
+<li>... Con el permiso de&nbsp;<font color="#ffff00">apply</font>.</li>
+</ol>
+</ol>
+</div>
+</h2>
+</section>
+<section>
+    <h2 style="font-style: normal; font-variant: normal;">call / apply / bind</h2>
+<h2>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+    <br>
+</div>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+<span style="font-weight: normal;">Las funciones call y apply permiten proporcionar a una función el contexto que debe usar.</span>
+</div>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+<span style="font-weight: normal;">Es decir, proporcionar un valor específico para&nbsp;<font color="#ffff00">this</font>.</span>
+</div>
+<div style="font-size: 30px; font-style: normal; font-variant: normal;">
+<span style="font-weight: normal;">
+    <br>
+</span>
+</div>
+<div style="font-size: 30px; font-variant: normal;">
+<span style="font-weight: normal;">bind devuelve <i>otra</i>&nbsp;función que es la misma que la original pero con el contexto establecido al valor indicado.</span>
+</div>
+</h2>
+</section>
+</section>
+<section>
+    <section>
+        <h2>Objetos en JavaScript</h2>
+<div>
+        <br>
+    </div>
+<div>Dos maneras de definir objetos en JavaScript</div>
+<div>
+    <br>
+</div>
+<div>
+<ol>
+<li>Usando Object Notation</li>
+<li>Definiendo una función constructora</li>
+<ol>
+<li>Invocar la función constructora con new</li>
+</ol>
+</ol>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+</section>
+<section>
+    <h2>Objetos y Arrays</h2>
+<div>
+    <br>
+</div>
+<div>Los arrays son un tipo especial de objeto</div>
+<div>
+<br>
+</div>
+<div>Los objetos se pueden ver como diccionarios</div>
+<div>Los objetos admiten notación de array (obj['clave'])</div>
+<div>
+<br>
+</div>
+<div>Object.keys() devuelve un array con las claves</div>
+<div>
+<br>
+</div>
+<div>Un objeto se puede convertir a Array llamando a Array.prototype.slice aplicado a dicho objeto, siempre y cuando:</div>
+<div>
+<span style="font-size: 29.98500633239746px; font-style: normal; font-variant: normal;">sus claves sean numéricas&nbsp;</span>
+<br>
+</div>
+<div>
+<span style="font-size: 29.98500633239746px; font-style: normal; font-variant: normal;">tenga una propiedad length</span>
+</div>
+<div>
+<span style="font-size: 29.98500633239746px; font-style: normal; font-variant: normal;">
+    <br>
+</span>
+</div>
+<div>
+<br>
+</div>
+<div>Arguments es un objeto, NO un array</div>
+</section>
+<section>
+    <h2>Prototipos</h2>
+<div>
+    <br>
+</div>
+<div>El prototipo es un objeto</div>
+<div>
+<br>
+</div>
+<div>Todo objeto tiene asociado un prototipo</div>
+<div>
+<br>
+</div>
+<div>Si invocamos un método/propiedad sobre un objeto y no se encuentra, este se busca en el prototipo...</div>
+<div>
+<br>
+</div>
+<div>... y en el prototipo del prototipo...</div>
+<div>
+<br>
+</div>
+<div>Añadir un método en el prototipo lo añade a todos los objetos que compartan dicho prototipo.</div>
+</section>
+<section>
+    <h2>Como asociar el prototipo</h2>
+<div>
+    <br>
+</div>
+<div>A través de la propiedad prototype de la función constructora</div>
+<div>
+<br>
+</div>
+<div>A través de Object.Create</div>
+</section>
+<section>
+    <h2>Herencia por prototipo</h2>
+<div>
+    <br>
+</div>
+<div>Consiste en asignar a la propiedad prototype de la función constructora un objeto de la "clase" base.</div>
+<div>
+<br>
+</div>
+<div>Automáticamente los objetos creados con la nueva función constructora heredarán los métodos y propiedades definidos en el objeto definido.</div>
+</section>
+</section>
+<section>
+    <h2>Currificación (curry)</h2>
+<div>
+    <br>
+</div>
+<div>Técnica de programación funcional que consiste en crear una función que es el resultado de evaluar <i>parcialmente</i>&nbsp;otra función</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>No hay soporte directo de currificación en JavaScript...</div>
+<div>... pero es muy sencillo implementarlo</div>
+</section>
+<section>
+    <section>
+        <h2>Propiedades</h2>
+<div>
+        <br>
+    </div>
+<div>Los objetos en JavaScript pueden tener propiedades con getters y setters</div>
+<div>
+    <br>
+</div>
+<div>Las propiedades<i>:</i>
+</div>
+<div>
+<i>
+<br>
+</i>
+</div>
+<div>
+<ul>
+<li>Pueden ser enumerables o no</li>
+<li>Pueden ser de solo lectura</li>
+</ul>
+</div>
+</section>
+<section>
+    <h2>Propiedades</h2>
+<div>
+    <br>
+</div>
+<div>Método Object.defineProperties</div>
+<div>Método Object.defineProperty</div>
+<div>
+<br>
+</div>
+<div>Toma dos parámetros:</div>
+<div>
+<br>
+</div>
+<div>
+<ol>
+<li>El objeto al que añadir las propiedades</li>
+<li>Un objeto que contiene las propiedades. Cada propiedad es un objeto con:</li>
+<ol>
+<li>get (función)</li>
+<li>set (función)</li>
+<li>enumerable (true | false)</li>
+<li>value (valor inicial)</li>
+<li>writable (true | false)</li>
+</ol>
+</ol>
+</div>
+</section>
+</section>
+<section>
+    <section>
+        <h2>Mixins</h2>
+<div>
+        <br>
+    </div>
+<div>En OOP un Mixin es una clase que contiene la combinación de métodos de otras clases</div>
+<div>
+    <br>
+</div>
+<div>Son un caso especial de herencia múltiple. Útiles cuando:</div>
+<div>
+<br>
+</div>
+<div>
+<ol>
+<li>Se quieren proporcionar muchas características opcionales en una clase</li>
+<li>Se quiere utilizar una característica en muchas clases distintas</li>
+</ol>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+</section>
+<section>
+    <h2>Mixins</h2>
+<div>
+    <br>
+</div>
+<div>En JavaScript podemos ver los mixins como un mecanismo para "inyectar funcionalidad" a un objeto</div>
+<div>
+<br>
+</div>
+<div>Uso de call para inyectar funcionalidad a un objeto</div>
+</section>
+</section>
+<section>
+    <h2>Funciones "estáticas"</h2>
+<div>
+    <br>
+</div>
+<div>No existe este concepto como tal en JavaScript</div>
+<div>
+<br>
+</div>
+<div>Se puede "simular" teniendo la función en el prototipo de la función constructora y modificar el contexto usando call/apply</div>
+<div>
+<br>
+</div>
+<div>Array.prototype.slice.call(arrayToSlice, args)</div>
+</section>
+<section>
+    <h2>Gracias!!</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>Eduard Tomàs</div>
+<div>@eiximenis</div>
+<div>
+<br>
+</div>
+<div>¿Dudas, preguntas, cervezas?</div>
+</section>
+</div>
