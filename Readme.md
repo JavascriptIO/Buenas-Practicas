@@ -1,7 +1,7 @@
 Buenas Prácticas
 ======
 
-Repositorio con las charlas y ejemplos de los #jsIO
+Repositorio con las charlas y ejemplos de los #jsIO sobre Buenas prácticas en Javascript
 
 * Introducción buenas prácticas
   * [Slides](http://javascriptio.github.io/Buenas-Practicas/slides/?title=introduccion#/)
